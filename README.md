@@ -3,7 +3,7 @@
 # MSP "Red Display" SPI Sharing
 Coding examples to demonstrate sharing of SPI pins on the MSP Red Display for both Arduino Uno R3 and ESP32-S3 MCU.
 
-The 240x320 TFT displays with an ILI9341 controller and XPT2046 touch controller with their distinctive red circuit board are very common.![MSP2807](assets/msp2807.png)
+The 240x320 TFT displays with an ILI9341 controller and XPT2046 touch controller with their distinctive red circuit board are very common.![MSP2807](assets/MSP2807.png)
 Models:
 -   2.4" SKU:  [MSP2402](http://www.lcdwiki.com/2.4inch_SPI_Module_ILI9341_SKU:MSP2402) (lcdwiki)
 -   2.8" SKU:  [MSP2807](http://www.lcdwiki.com/2.8inch_SPI_Module_ILI9341_SKU:MSP2807) (lcdwiki)
