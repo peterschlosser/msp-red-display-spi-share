@@ -1,8 +1,9 @@
 
+
 # MSP "Red Display" SPI Sharing
 Coding examples to demonstrate sharing of SPI pins on the MSP Red Display for both Arduino Uno R3 and ESP32-S3 MCU.
 
-The 240x320 TFT displays with an ILI9341 controller and XPT2046 touch controller with their distinctive red circuit board are very common.![enter image description here](assets/msp2807.png)
+The 240x320 TFT displays with an ILI9341 controller and XPT2046 touch controller with their distinctive red circuit board are very common.![MSP2807](assets/msp2807.png)
 Models:
 -   2.4" SKU:  [MSP2402](http://www.lcdwiki.com/2.4inch_SPI_Module_ILI9341_SKU:MSP2402) (lcdwiki)
 -   2.8" SKU:  [MSP2807](http://www.lcdwiki.com/2.8inch_SPI_Module_ILI9341_SKU:MSP2807) (lcdwiki)
@@ -51,7 +52,9 @@ The [LCDWiki](http://lcdwiki.com/) site is an excellent resource for data and in
 
 ## SPI Interface
 The SPI ([Serial Peripheral Interface](https://en.wikipedia.org/wiki/Serial_Peripheral_Interface)) interface is one of two common interfaces used by the Arduino Platform to communicate with other chips, breakouts and devices.  Observe in the diagram the single-slave model.
+
 ![SPI Single-Slave](assets/SPI_single_slave.svg)
+
 The SPI transfers data between the Master (typically the MCU, such as the Arduino) and the Slave (the chip or device).  The transfer speeds can be quite high, upwards to 80 MHz or more.  Of course, the Arduino Uno R3 is pretty slow, in terms of MCU processors, and is limited to 4 MHz SPI speed.
 
 Data is transferred serially one-bit at a time and in one direction on one of two signals:
@@ -62,8 +65,10 @@ Because the transfer speeds can be quite high, a separate serial clock signal is
 
 A fourth signal, Slave Select `SS` is used to select the slave and signal it to use the `MOSI` and `MISO` signals for communication.  While the `SS` is inactive, the slave is free to ignore or disregard any activity on the `MOSI` and `MISO` lines.  The select may also be referred to as a Chip Select `CS` and is synonymous with `SS`
 
-The three functions found on the "Red Display" with touch feature (two functions without) are each SPI devices and may share (multi-drop configuration) the same SPI wires to conserve GPIO pins when they are limited.  
+The three functions found on the "Red Display" with touch feature (two functions without) are each SPI devices and may share (multi-drop configuration) the same SPI wires to conserve GPIO pins when they are limited.
+
 ![SPI Multi-Drop](assets/SPI_three_devices.svg)
+
 In the multi-drop model, the devices share `SCLK`, `MOSI`, and `MISO` but each slave has a dedicated select `SS` signal.
 
 For some, its simpler to place each slave their own sets of GPIO pins.  Opinions may vary which is best.  When the number of SPI slaves is small, and GPIO pins abundant, it may be toss which is best.
@@ -101,6 +106,7 @@ The majority of signals on the MSP are designed for 3V3 levels.  Many of the ESP
 | J4-4  | SD_SCK   | 13  |
 
 [![MSP3218-UnoR3-Wiring-Schematic](assets/MSP3218-UnoR3-SCH.png)](docs/MSP3218-UnoR3-SCH.pdf)
+MSP3218-UnoR3-Wiring-Schematic
 
 ## GPIO Pin Connection ESP32-S3
 | Number | Module Pin | MCU Wiring Pin |
@@ -125,6 +131,7 @@ The majority of signals on the MSP are designed for 3V3 levels.  Many of the ESP
 | J4-4  | SD_SCK   | 12  |
 
 [![MSP3218-ESP32S3-Wiring-Schematic](assets/MSP3218-ESP32S3-SCH.png)](docs/MSP3218-ESP32S3-SCH.pdf)
+MSP3218-ESP32S3-Wiring-Schematic
 
 ## Troubleshooting Tips
 * The entire display, and all three of its functions (display, touch and sd-card) are powered by the same pins, `VCC` and `GND`.  Measure voltages with a meter, when needed.
