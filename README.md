@@ -1,7 +1,8 @@
+
 # MSP "Red Display" SPI Sharing
 Coding examples to demonstrate sharing of SPI pins on the MSP Red Display for both Arduino Uno R3 and ESP32-S3 MCU.
 
-The 240x320 TFT displays with an ILI9341 controller and XPT2046 touch controller with their distinctive red circuit board are very common.![enter image description here](https://www.openhasp.com/0.6.1/assets/images/displays/msp2807.png)
+The 240x320 TFT displays with an ILI9341 controller and XPT2046 touch controller with their distinctive red circuit board are very common.![enter image description here](assets/msp2807.png)
 Models:
 -   2.4" SKU:  [MSP2402](http://www.lcdwiki.com/2.4inch_SPI_Module_ILI9341_SKU:MSP2402) (lcdwiki)
 -   2.8" SKU:  [MSP2807](http://www.lcdwiki.com/2.8inch_SPI_Module_ILI9341_SKU:MSP2807) (lcdwiki)
@@ -19,9 +20,9 @@ Presented here are GPIO pinout and connection suggestions and tips for those bri
 
 We offer two potential MCU configurations:
 - Arduino Uno R3 A000066
-	![enter image description here](https://store-usa.arduino.cc/cdn/shop/files/A000066_01.iso_466x350.jpg) 
+	![Arduino Uno R3](assets/A000066_01.iso_466x350.jpg) 
 - ESP32-S3-DevKitC-1
-	![enter image description here](https://docs.espressif.com/projects/esp-dev-kits/en/latest/esp32s3/_images/esp32-s3-devkitc-1-v1.1-isometric.png)
+	![ESP32-S3-DevKitX-1](assets/esp32-s3-devkitc-1-v1.1-isometric.png)
  
 
 The [LCDWiki](http://lcdwiki.com/) site is an excellent resource for data and information on these and other display products, such as those made sold by [Adafruit](https://www.adafruit.com/), [AliExpress](https://www.aliexpress.us/), [Amazon](https://www.amazon.com/), [DigiKey](https://www.digikey.com/) and [Waveshare](https://www.waveshare.com/).
@@ -50,7 +51,7 @@ The [LCDWiki](http://lcdwiki.com/) site is an excellent resource for data and in
 
 ## SPI Interface
 The SPI ([Serial Peripheral Interface](https://en.wikipedia.org/wiki/Serial_Peripheral_Interface)) interface is one of two common interfaces used by the Arduino Platform to communicate with other chips, breakouts and devices.  Observe in the diagram the single-slave model.
-![SPI interface](https://upload.wikimedia.org/wikipedia/commons/e/ed/SPI_single_slave.svg)
+![SPI Single-Slave](assets/SPI_single_slave.svg)
 The SPI transfers data between the Master (typically the MCU, such as the Arduino) and the Slave (the chip or device).  The transfer speeds can be quite high, upwards to 80 MHz or more.  Of course, the Arduino Uno R3 is pretty slow, in terms of MCU processors, and is limited to 4 MHz SPI speed.
 
 Data is transferred serially one-bit at a time and in one direction on one of two signals:
@@ -62,7 +63,7 @@ Because the transfer speeds can be quite high, a separate serial clock signal is
 A fourth signal, Slave Select `SS` is used to select the slave and signal it to use the `MOSI` and `MISO` signals for communication.  While the `SS` is inactive, the slave is free to ignore or disregard any activity on the `MOSI` and `MISO` lines.  The select may also be referred to as a Chip Select `CS` and is synonymous with `SS`
 
 The three functions found on the "Red Display" with touch feature (two functions without) are each SPI devices and may share (multi-drop configuration) the same SPI wires to conserve GPIO pins when they are limited.  
-![enter image description here](https://upload.wikimedia.org/wikipedia/commons/f/fc/SPI_three_slaves.svg)
+![SPI Multi-Drop](assets/SPI_three_devices.svg)
 In the multi-drop model, the devices share `SCLK`, `MOSI`, and `MISO` but each slave has a dedicated select `SS` signal.
 
 For some, its simpler to place each slave their own sets of GPIO pins.  Opinions may vary which is best.  When the number of SPI slaves is small, and GPIO pins abundant, it may be toss which is best.
@@ -75,7 +76,7 @@ The MSP "Red Display" may be powered on `VCC` with any convenient voltage betwee
 The `LED` pin may be powered by a PWM signal, when desired, to attenuate the LED backlighting.  Or for simply full brightness, one may connect the pin to any convenient 3V3 power source, but do note 3V3 is the maximum, so avoid powering with 5V0.
 
 The majority of signals on the MSP are designed for 3V3 levels.  Many of the ESP32 MCUs run using 3V3 GPIO signal levels, so this is convenient.  But be aware, the Arduino Uno R3, and several other MCU models, are running with 5V0 signal levels.  To connect the Uno to the Red Display, one must use *Level Shifters*.
-![enter image description here](https://cdn-shop.adafruit.com/970x728/757-06.jpg)
+![Level Shifter](assets/757-06.jpg)
 
 ## GPIO Pin Connection Arduino Uno R3
 | Number | Module Pin | MCU Wiring Pin |
@@ -98,7 +99,9 @@ The majority of signals on the MSP are designed for 3V3 levels.  Many of the ESP
 | J4-2  | SD_MOSI  | 11  |
 | J4-3  | SD_MISO  | 12  |
 | J4-4  | SD_SCK   | 13  |
-[![MSP3218-UnoR3-Wiring-Schematic](assets/MSP3218-UnoR3-SCH.png)](assets/MSP3218-UnoR3-SCH.pdf)
+
+[![MSP3218-UnoR3-Wiring-Schematic](assets/MSP3218-UnoR3-SCH.png)](docs/MSP3218-UnoR3-SCH.pdf)
+
 ## GPIO Pin Connection ESP32-S3
 | Number | Module Pin | MCU Wiring Pin |
 | :------: | :--------: | :----------- |
@@ -121,7 +124,7 @@ The majority of signals on the MSP are designed for 3V3 levels.  Many of the ESP
 | J4-3  | SD_MISO  | 13  |
 | J4-4  | SD_SCK   | 12  |
 
-[![MSP3218-ESP32S3-Wiring-Schematic](assets/MSP3218-ESP32S3-SCH.png)](assets/MSP3218-ESP32S3-SCH.pdf)
+[![MSP3218-ESP32S3-Wiring-Schematic](assets/MSP3218-ESP32S3-SCH.png)](docs/MSP3218-ESP32S3-SCH.pdf)
 
 ## Troubleshooting Tips
 * The entire display, and all three of its functions (display, touch and sd-card) are powered by the same pins, `VCC` and `GND`.  Measure voltages with a meter, when needed.
