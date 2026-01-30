@@ -1,5 +1,6 @@
 
 
+
 # MSP "Red Display" SPI Sharing
 Coding examples to demonstrate sharing of SPI pins on the MSP Red Display for both Arduino Uno R3 and ESP32-S3 MCU.
 
@@ -105,8 +106,10 @@ The majority of signals on the MSP are designed for 3V3 levels.  Many of the ESP
 | J4-3  | SD_MISO  | 12  |
 | J4-4  | SD_SCK   | 13  |
 
-[![MSP3218-UnoR3-Wiring-Schematic](assets/MSP3218-UnoR3-SCH.png)](docs/MSP3218-UnoR3-SCH.pdf)
-MSP3218-UnoR3-Wiring-Schematic
+* [MSP3218-UnoR3-Wiring-Schematic
+
+![MSP3218-UnoR3-Wiring-Schematic](assets/MSP3218-UnoR3-SCH.png)](docs/MSP3218-UnoR3-SCH.pdf)
+* Demonstration Example ([Arduino IDE](Arduino/)) ([PlatformIO](PlatformIO/)) 
 
 ## GPIO Pin Connection ESP32-S3
 | Number | Module Pin | MCU Wiring Pin |
@@ -130,8 +133,9 @@ MSP3218-UnoR3-Wiring-Schematic
 | J4-3  | SD_MISO  | 13  |
 | J4-4  | SD_SCK   | 12  |
 
-[![MSP3218-ESP32S3-Wiring-Schematic](assets/MSP3218-ESP32S3-SCH.png)](docs/MSP3218-ESP32S3-SCH.pdf)
-MSP3218-ESP32S3-Wiring-Schematic
+* [MSP3218-ESP32S3-Wiring-Schematic
+![MSP3218-ESP32S3-Wiring-Schematic](assets/MSP3218-ESP32S3-SCH.png)](docs/MSP3218-ESP32S3-SCH.pdf)
+* Demonstration Example ([Arduino IDE](Arduino/)) ([PlatformIO](PlatformIO/)) 
 
 ## Troubleshooting Tips
 * The entire display, and all three of its functions (display, touch and sd-card) are powered by the same pins, `VCC` and `GND`.  Measure voltages with a meter, when needed.
