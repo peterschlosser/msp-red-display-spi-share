@@ -159,8 +159,8 @@ The majority of signals on the MSP are designed for 3V3 levels.  Many of the ESP
 		* ESP32-S3 runs up to 80 MHz SPI speed.
 ## Resources
 - 2.4-inch MSP2402 SPI Module [user manual](/docs/2.4inch_SPI_Module_MSP2402_User_Manual_EN.pdf), [schematic](/docs/MSP2402-2.4-SPI-SCH.pdf)
-- 2.8-inch SPI Module [user manual](/docs/2.8inch_SPI_Module_MSP2807_User_Manual_EN.pdf), [schematic](/docs/MSP2807-2.8-SPI-SCH.pdf)
-- 3.2-inch SPI Module [user manual](/docs/3.2inch_SPI_Module_MSP3218_User_Manual_EN.pdf), [schematic](/docs/MSP3218-3.2-SPI-SCH.pdf)
+- 2.8-inch MSP2807 SPI Module [user manual](/docs/2.8inch_SPI_Module_MSP2807_User_Manual_EN.pdf), [schematic](/docs/MSP2807-2.8-SPI-SCH.pdf)
+- 3.2-inch MSP3218 SPI Module [user manual](/docs/3.2inch_SPI_Module_MSP3218_User_Manual_EN.pdf), [schematic](/docs/MSP3218-3.2-SPI-SCH.pdf)
 - MCU Arduino Uno R3 A000066 [datasheet](docs/Arduino-A000066-datasheet.pdf) ([arduino.cc](https://docs.arduino.cc/hardware/uno-rev3/))
 - MCU ESP32-S3 DevKitC-1 [datasheet](/docs/ESP32-S3-datasheet.pdf) ([espressif](https://docs.espressif.com/projects/esp-dev-kits/en/latest/esp32s3/esp32-s3-devkitc-1/index.html))
  - BSS138 Bi-Directional Logic Level Converters [datasheet](/docs/BSS138.pdf) ([Adafruit](https://www.adafruit.com/product/757))
