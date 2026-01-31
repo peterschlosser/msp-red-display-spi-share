@@ -54,7 +54,7 @@ The [LCDWiki](http://lcdwiki.com/) site is an excellent resource for data and in
 | J4-4  | SD_SCK  | SD card SPI bus clock signal |
 
 ## SPI Interface
-The SPI ([Serial Peripheral Interface](https://en.wikipedia.org/wiki/Serial_Peripheral_Interface)) interface is one of two common interfaces used by the Arduino Platform to communicate with other chips, breakouts and devices.  Observe in the diagram the single-slave model.
+The SPI ([Serial Peripheral Interface](https://en.wikipedia.org/wiki/Serial_Peripheral_Interface)) interface is one of two common interfaces (the other being [I2C](https://en.wikipedia.org/wiki/I2C)) used by the Arduino Platform to communicate with other chips, breakouts and devices.  Observe in the diagram the single-slave model.
 
 ![SPI Single-Slave](assets/SPI_single_slave.svg)
 
