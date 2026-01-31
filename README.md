@@ -74,9 +74,9 @@ The three functions found on the "Red Display" with touch feature (two functions
 
 In the multi-drop model, the devices share `SCLK`, `MOSI`, and `MISO` but each slave has a dedicated select `SS` signal.
 
-For some, its simpler to place each slave their own sets of GPIO pins.  Opinions may vary which is best.  When the number of SPI slaves is small, and GPIO pins abundant, it may be toss which is best.
+For some, its simpler to place each slave on their own sets of GPIO pins.  Opinions may vary which is best.  When the number of SPI slaves is small, and GPIO pins abundant, it may be toss which is better.
 
-The LCDWiki guides, for example, suggest using separate GPIO pins on the Arduino Uno R3.  This works for many, and the single-slave model is indeed simpler, but we will be continuing our discussion in this repository using the multi-drop configuration.
+The LCDWiki guides, for example, suggest using separate GPIO pins on the Arduino Uno R3.  This works for many, and the single-slave model is indeed simpler, but we will be continuing our discussion using the multi-drop configuration.
 
 ## Power and Voltage Levels
 The MSP "Red Display" may be powered on `VCC` with any convenient voltage between 3V3 (3.3V) and 5V0 (5.0V) DC.  The schematics show us that `U1` uses an `XC6206` voltage regulator to regulate the voltage to 3V3, internally.  Note, however, when powering the display with 3V3, it is best to bypass the regulator at `U1` by closing the solder jumper at `J1`
@@ -142,8 +142,8 @@ The majority of signals on the MSP are designed for 3V3 levels.  Many of the ESP
 * The SPI pins within the MSP3218 are NOT connected together.  The SPI pins at the connector MUST be connected to the MCU to function properly.
 
 * **Black Screen**
-	* Cause: LED Pin Not Powered. The TFT LED display without LED backlight power will aways appear black, even when the display is correctly wired, configured, working, and content has printed to the display.
-		* Look closely as the powered display (in a dark room, if needed) to confirm the LED is lit.  Even a screen with a black background with no content will show evidence the LED backlight is indeed lit.
+	* Cause: LED Pin Not Powered. The TFT LED display without LED backlight power will always appear black, even when the display is correctly wired, configured, working, and content has printed to the display.
+		* Look closely at the powered display (in a dark room, if needed) to confirm the LED is lit.  Even a screen with a black background and no content will show evidence the LED backlight is indeed lit.
 		* Examine your LED signal pin, if you cannot see the LED is on.  Measure the voltage, if needed.
 		* Make sure the VCC and GND connections are functioning.
 *  **White Screen**, **Garbled Screen**
@@ -152,7 +152,7 @@ The majority of signals on the MSP are designed for 3V3 levels.  Many of the ESP
 		* Bad `CS` Chip Select pin  Inspect and confirm.
 		* Missing `RST` pin.  Many ILI9341 libraries treat the `TFT_RST` pin as optional, allowing them to be set to `-1`.  Tests show in most cases, the MSP Modules need a definite hardware reset.  Be sure this pin is connected to the MCU and configured in the display driver.
 		* Other SPI devices are selected blocking data lines.  It is customary to setup the display first in the `setup()` method.  We often do this, so we may display error messages to the display later in `setup()`.  When the MCU first powers up, the state of the GPIO pins used as SPI Slave Selects may be indetermined, potentially floating HIGH or LOW.  SPI `SS` pins are active LOW, so it may be possible in their LOW state, one or more SPI devices are active while the ILI9341 is being initialized.  When an SPI device is selected, it may affect the `MISO` and `MOSI` pins.  To resolve, initially set all the SPI `SS`  GPIO pins to OUTPUT mode and in a HIGH state, as early as possible in `setup()`.
-	* The SPI speed is too fast for display or wiring.  Test as slower speeds to confirm.  Once the display appears to work, you can speed things back up and retest.
+	* The SPI speed is too fast for display or wiring.  Test at slower speeds to confirm.  Once the display appears to work, you can speed things back up and retest.
 		* Solo speed tests good at 40 MHz, but not when shared, or wired by bread board jumper wires.
 		* Shared at 35 MHz tests good with bread board.
 		* Arduino Uno R3 runs up to 4 MHz SPI speed.
