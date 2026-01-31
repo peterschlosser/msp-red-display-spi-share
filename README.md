@@ -2,6 +2,7 @@
 
 
 
+
 # MSP "Red Display" SPI Sharing
 Coding examples to demonstrate sharing of SPI pins on the MSP Red Display for both Arduino Uno R3 and ESP32-S3 MCU.
 
@@ -28,7 +29,7 @@ We offer two potential MCU configurations:
 	![ESP32-S3-DevKitX-1](assets/esp32-s3-devkitc-1-v1.1-isometric.png)
  
 
-The [LCDWiki](http://lcdwiki.com/) site is an excellent resource for data and information on these and other display products, such as those made sold by [Adafruit](https://www.adafruit.com/), [AliExpress](https://www.aliexpress.us/), [Amazon](https://www.amazon.com/), [DigiKey](https://www.digikey.com/) and [Waveshare](https://www.waveshare.com/).
+The [LCDWiki](http://lcdwiki.com/) site is an excellent resource for data and information on these and other display products, such as those made or sold by [Adafruit](https://www.adafruit.com/), [AliExpress](https://www.aliexpress.us/), [Amazon](https://www.amazon.com/), [DigiKey](https://www.digikey.com/) and [Waveshare](https://www.waveshare.com/).
 
 ## MSP Module Pin Description
 | Number | Module Pin | Description |
